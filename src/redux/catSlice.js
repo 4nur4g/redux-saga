@@ -6,7 +6,7 @@ const initialState = {
 };
 
 const catSlice = createSlice({
-  name: "counter",
+  name: "cats",
   initialState,
   reducers: {
     getCatsFetch(state) {

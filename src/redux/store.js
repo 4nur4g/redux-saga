@@ -1,13 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit";
-import createMiddleware from "redux-saga";
-import catReducer from "./catSlice";
+import createSagaMiddleware from "redux-saga";
+import catsReducer from "./catSlice";
+import catSaga from "./catSaga.js";
 
-const saga = createMiddleware();
+const saga = createSagaMiddleware();
 const store = configureStore({
   reducer: {
-    cats: catReducer,
+    cats: catsReducer,
   },
   middleware: [saga],
 });
+
+saga.run(catSaga)
 
 export default store;
